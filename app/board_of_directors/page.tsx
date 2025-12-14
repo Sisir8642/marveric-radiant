@@ -8,7 +8,7 @@ export default function BoardOfDirectors() {
   const topDirector = {
     name: "Mr. Mukti Bodh Neupane",
     title: "Executive Director",
-    image: "/images/impact.jpg",
+    image: "/images/innovation.jpg",
     description:
       "Senior finance and infrastructure professional with 20+ years of experience across the energy and infrastructure sectors. Chartered Accountant with extensive financial and sectoral expertise.",
   };
