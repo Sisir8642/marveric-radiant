@@ -1,0 +1,123 @@
+'use client';
+
+import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+
+const teamMembers = [
+  {
+    name: "Mr. Dhungana",
+    title: "Senior Investment Associate",
+    image: "/images/integrity.jpg",
+    description:
+      "Finance professional with 5+ years of experience in investment management, portfolio strategy, and financial analysis. MBA from Queen Margaret University and completed all CFA levels.",
+  },
+  {
+    name: "Ms. Sabita Godar Thapa",
+    title: "Legal and Compliance Head",
+    image: "/images/sabita.jpg",
+    description:
+      "Experienced legal practitioner with extensive courtroom experience. Former General Manager at Nepal Bar Association. Holds a Master's in Criminal and Commercial Law.",
+  },
+  {
+    name: "Ms. Dikshya Pokhrel",
+    title: "Compliance Officer",
+    image: "/images/dikshya.jpg",
+    description:
+      "Business and energy law professional with expertise in private equity, hydropower development, and financial consulting. Specializes in legal compliance and project financing.",
+  },
+  {
+    name: "Ms. Pratikshya",
+    title: "Finance Officer",
+    image: "/images/pratikshya.jpg",
+    description:
+      "ACCA-certified finance professional with 3+ years’ experience in audits, tax compliance, financial reporting, and internal controls.",
+  },
+];
+
+export default function ManagementTeam() {
+  const topMember = teamMembers[0];
+  const otherMembers = teamMembers.slice(1);
+
+  return (
+    <section id="management_team" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <div className="max-w-7xl mx-auto">
+
+        {/* Title */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Team</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            A powerful synergy of experienced professionals and dynamic young talent driving innovation and strategic growth.
+          </p>
+        </div>
+
+        {/* Management Team Title */}
+        <h3 className="text-3xl font-bold text-gray-800 mb-12 text-center">Management Team</h3>
+
+        {/* Top Member (Single Row) */}
+        <div className="flex justify-center mb-16">
+          <Card className="bg-white shadow-md border rounded-xl w-110">
+            <CardContent className="p-0">
+
+              <div className="w-full h-60 overflow-hidden rounded-t-xl">
+                <img
+                  src={topMember.image}
+                  alt={topMember.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="p-6 text-center">
+                <h4 className="text-xl font-bold text-gray-800 mb-1">
+                  {topMember.name}
+                </h4>
+
+                <p className="text-green-600 font-semibold mb-3 text-sm">
+                  {topMember.title}
+                </p>
+
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {topMember.description}
+                </p>
+              </div>
+
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Other Members (Second Row Grid) */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
+          {otherMembers.map((member, i) => (
+            <Card key={i} className="bg-white shadow-md border rounded-xl w-85">
+              <CardContent className="p-0">
+
+                <div className="w-full h-50 overflow-hidden rounded-t-xl">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <div className="p-6 text-center">
+                  <h4 className="text-xl font-bold text-gray-800 mb-1">
+                    {member.name}
+                  </h4>
+
+                  <p className="text-green-600 font-semibold mb-3 text-sm">
+                    {member.title}
+                  </p>
+
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {member.description}
+                  </p>
+                </div>
+
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
