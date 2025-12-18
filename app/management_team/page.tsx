@@ -5,30 +5,30 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const teamMembers = [
   {
-    name: "Mr. Dhungana",
+    name: "Mr Saugat. Dhungana",
     title: "Senior Investment Associate",
-    image: "/images/integrity.jpg",
+    image: "/images/saugatD.png",
     description:
       "Finance professional with 5+ years of experience in investment management, portfolio strategy, and financial analysis. MBA from Queen Margaret University and completed all CFA levels.",
   },
   {
     name: "Ms. Sabita Godar Thapa",
     title: "Legal and Compliance Head",
-    image: "/images/sabita.jpg",
+    image: "/images/user.png",
     description:
       "Experienced legal practitioner with extensive courtroom experience. Former General Manager at Nepal Bar Association. Holds a Master's in Criminal and Commercial Law.",
   },
   {
     name: "Ms. Dikshya Pokhrel",
     title: "Compliance Officer",
-    image: "/images/dikshya.jpg",
+    image: "/images/dikshyaP.png",
     description:
       "Business and energy law professional with expertise in private equity, hydropower development, and financial consulting. Specializes in legal compliance and project financing.",
   },
   {
     name: "Ms. Pratikshya",
     title: "Finance Officer",
-    image: "/images/pratikshya.jpg",
+    image: "/images/user.png",
     description:
       "ACCA-certified finance professional with 3+ years’ experience in audits, tax compliance, financial reporting, and internal controls.",
   },
@@ -58,11 +58,11 @@ export default function ManagementTeam() {
           <Card className="bg-white shadow-md border rounded-xl w-110">
             <CardContent className="p-0">
 
-              <div className="w-full h-60 overflow-hidden rounded-t-xl">
+              <div className="w-full h-72 overflow-hidden rounded-t-xl flex items-center justify-center bg-gray-100">
                 <img
                   src={topMember.image}
                   alt={topMember.name}
-                  className="w-full h-full object-cover"
+                  className="max-w-full max-h-full object-contain"
                 />
               </div>
 
@@ -90,11 +90,11 @@ export default function ManagementTeam() {
             <Card key={i} className="bg-white shadow-md border rounded-xl w-85">
               <CardContent className="p-0">
 
-                <div className="w-full h-50 overflow-hidden rounded-t-xl">
+                <div className="w-full h-72 overflow-hidden rounded-t-xl flex items-center justify-center bg-gray-100">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="max-w-full max-h-full object-contain"
                   />
                 </div>
 

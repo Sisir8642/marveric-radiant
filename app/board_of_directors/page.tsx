@@ -8,7 +8,7 @@ export default function BoardOfDirectors() {
   const topDirector = {
     name: "Mr. Mukti Bodh Neupane",
     title: "Executive Director",
-    image: "/images/innovation.jpg",
+    image: "/images/user.png",
     description:
       "Senior finance and infrastructure professional with 20+ years of experience across the energy and infrastructure sectors. Chartered Accountant with extensive financial and sectoral expertise.",
   };
@@ -17,28 +17,28 @@ export default function BoardOfDirectors() {
     {
       name: "Mr. Gehanath Dhungana",
       title: "Board Member",
-      image: "/images/innovation.jpg",
+      image: "/images/GehaNath.png",
       description:
         "MBA-qualified veteran with 30+ years in Nepal's banking sector, including leadership roles in top commercial banks.",
     },
     {
       name: "Mr. Bharat Bahadur Khatri",
       title: "Board Member",
-      image: "/images/bharat.jpg",
+      image: "/images/user.png",
       description:
         "Seasoned leader with an LLM degree. Chairman at multiple power companies with extensive hydropower development expertise.",
     },
     {
       name: "Ms. Smritee Paudel",
       title: "Board Member & Head of Business Development",
-      image: "/images/smritee.jpg",
+      image: "/images/smeritiP.png",
       description:
         "7+ years’ experience in renewable energy, sustainability, and infrastructure. Holds an M.Sc. from Asian Institute of Technology.",
     },
     {
       name: "Ms. Suzata Khadka",
       title: "Board Member",
-      image: "/images/suzata.jpg",
+      image: "/images/user.png",
       description:
         "Finance professional with strong experience in auditing, financial management, and corporate finance.",
     },
@@ -64,13 +64,13 @@ export default function BoardOfDirectors() {
           <Card className="bg-white shadow-md border rounded-xl w-110">
             <CardContent className="p-0">
 
-              <div className="w-full h-60 overflow-hidden rounded-t-xl">
-                <img
-                  src={topDirector.image}
-                  alt={topDirector.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <div className="w-full h-72 overflow-hidden rounded-t-xl flex items-center justify-center bg-gray-100">
+                  <img
+                    src={topDirector.image}
+                    alt={topDirector.name}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
 
               <div className="p-6 text-center">
                 <h4 className="text-xl font-bold text-gray-800 mb-1">
@@ -95,16 +95,17 @@ export default function BoardOfDirectors() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
           {otherMembers.map((member, i) => (
-            <Card key={i} className="bg-white shadow-md border rounded-xl w-85">
+            <Card key={i} className="bg-white shadow-md border rounded-xl w-100">
               <CardContent className="p-0">
 
-                <div className="w-full h-50 overflow-hidden rounded-t-xl">
+                <div className="w-full h-72 overflow-hidden rounded-t-xl flex items-center justify-center bg-gray-100">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="max-w-full max-h-full object-contain"
                   />
                 </div>
+
 
                 <div className="p-6 text-center">
                   <h4 className="text-xl font-bold text-gray-800 mb-1">

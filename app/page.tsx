@@ -436,7 +436,7 @@ export default function MaverickWebsite() {
                     <h3 className="text-xl sm:text-2xl font-bold mb-3">
                       {item.title}
                     </h3>
-                    <p className="text-sm sm:text-base text-white/90 line-clamp-4 ">
+                    <p className="text-sm sm:text-base text-white/90 line-clamp-4 mt-10 ">
                       {item.description}
                     </p>
                   </div>
