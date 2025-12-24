@@ -128,7 +128,7 @@ export default function MaverickWebsite() {
                 Investments <ChevronRight className="ml-2" size={20} />
               </Button>
             </motion.div>
-          </div>
+          </div>  
 
         </div>
       </section>
