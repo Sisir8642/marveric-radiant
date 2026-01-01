@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { ChevronRight, Handshake, Mail, Phone, MapPin, Shield, BookOpen, LineChart, TrendingUp, Briefcase, Lightbulb, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,6 +14,26 @@ export default function MaverickWebsite() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+
+  const sliderImages = [
+  "/images/slider1.jpg",
+  "/images/slider2.jpg",
+  "/images/slider3.jpg",
+  "/images/slider4.jpg",
+  "/images/slider5.jpg",
+];
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderImages.length);
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, [sliderImages.length]);
+
 
   const values = [
     {
@@ -63,75 +84,103 @@ export default function MaverickWebsite() {
     <div className="min-h-screen bg-white">
 
       <section id="home" className="relative w-full h-screen overflow-hidden">
+  {/* Slider Images */}
+  {sliderImages.map((src, index) => (
+    <div
+      key={index}
+      className={`absolute top-0 left-0 w-full h-full object-cover transition-transform duration-1000 ease-in-out ${
+        index === currentIndex
+          ? "translate-x-0"
+          : index === (currentIndex - 1 + sliderImages.length) % sliderImages.length
+          ? "-translate-x-full"
+          : "translate-x-full"
+      }`}
+    >
+      <img src={src} alt={`Slide ${index + 1}`} className="w-full h-full object-cover" />
+    </div>
+  ))}
 
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src="/vedios/nepal.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black/30"></div>
 
-        <div className="absolute inset-0 bg-black/30"></div>
+  {/* Text content at bottom */}
+  <div className="relative z-10 flex flex-col items-center justify-end h-full px-4 sm:px-6 lg:px-8 text-center pb-24">
+    <motion.h1
+      className="text-3xl sm:text-5xl lg:text-5xl font-bold text-white mb-6"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 1 }}
+    >
+      Transforming Nepali Enterprises Through
+      Strategic Investment
+    </motion.h1>
+    <motion.p
+      className="text-sm sm:text-xl lg:text-3xl text-white font-semibold mb-8 max-w-3xl mx-auto text-center leading-relaxed drop-shadow-lg"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 1, delay: 0.3 }}
+    >
+      SEBON-licensed Private Equity and Venture Capital fund manager committed to empowering Nepal&apos;s private sector
+    </motion.p>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 1 }}
-          >
-            Transforming Nepali Enterprises Through Strategic Investment
-          </motion.h1>
-          <motion.p
-            className="text-xl sm:text-2xl lg:text-3xl text-white font-semibold mb-8 max-w-3xl mx-auto text-center leading-relaxed drop-shadow-lg"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            SEBON-licensed Private Equity and Venture Capital fund manager committed to empowering Nepal&apos;s private sector
-          </motion.p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+  {/* Button 1: Navigate to /investment page */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    viewport={{ once: false, amount: 0.2 }}
+    transition={{ duration: 0.8, delay: 0.3 }}
+  >
+    <Link href="/investments" passHref>
+      <Button
+        size="lg"
+        className="bg-green-900 hover:bg-green-800 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+      >
+        News And Article <ChevronRight className="ml-2" size={20} />
+      </Button>
+    </Link>
+  </motion.div>
+
+  {/* Button 2: Scroll to "investments" section */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    viewport={{ once: false, amount: 0.2 }}
+    transition={{ duration: 0.8, delay: 0.5 }}
+  >
+    <Link href="/news" passHref>
+    <Button
+      onClick={() => scrollToSection("investments")}
+      size="lg"
+      variant="outline"
+      className="bg-green-900 hover:bg-green-800 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+    >
+      Investments <ChevronRight className="ml-2" size={20} />
+    </Button>
+    </Link>
+  </motion.div>
+</div>
+
+  </div>
+
+  {/* Slider dots at very bottom */}
+  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+    {sliderImages.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentIndex(index)}
+        className={`w-2 h-2 rounded-full transition-all ${
+          index === currentIndex ? "bg-white w-8" : "bg-white/50"
+        }`}
+        aria-label={`Go to slide ${index + 1}`}
+      />
+    ))}
+  </div>
+</section>
 
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              <Button
-                onClick={() => scrollToSection('news')}
-                size="lg"
-                className="bg-green-900 hover:bg-green-800 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-              >
-                News And Article <ChevronRight className="ml-2" size={20} />
-              </Button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <Button
-                onClick={() => scrollToSection('investments')}
-                size="lg"
-                variant="outline"
-                className="bg-green-900 hover:bg-green-800 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-              >
-                Investments <ChevronRight className="ml-2" size={20} />
-              </Button>
-            </motion.div>
-          </div>
-
-        </div>
-      </section>
 
       <section className="py-16 bg-green-900  text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
