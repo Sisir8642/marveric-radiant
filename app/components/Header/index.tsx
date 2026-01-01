@@ -137,24 +137,27 @@ const Header = () => {
                                 >
                                     WHAT WE DO
                                 </button>
-                                <button
-                                    onClick={() => handleScrollOrNavigate('investments')}
-                                    className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-600 hover:text-blue-600"
-                                >
-                                    INVESTMENTS
-                                </button>
+                                <Link href="/investments" className="block">
+                                    <button
+                                        className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-600 hover:text-blue-600"
+                                    >
+                                        INVESTMENTS
+                                    </button>
+                                </Link>
 
                             </div>
                         </div>
 
-
-
+                        <Link
+                        href={'/news'}
+                        >
                         <button
                             onClick={() => handleScrollOrNavigate('news')}
                             className="border-2 border-transparent hover:border-green-400 p-2 rounded-3xl transition-all duration-500 text-gray-600 hover:text-blue-600 cursor-pointer font-bold"
                         >
                             NEWS & ARTICLES
                         </button>
+                        </Link>
 
                         <button
                             onClick={() => handleScrollOrNavigate('contact')}
@@ -206,14 +209,14 @@ const Header = () => {
                                 What We Do
                             </button>
 
-                        <button onClick={() => handleScrollOrNavigate('services')} className="py-2 text-gray-700">
-                            Why us
-                        </button>
+                            <button onClick={() => handleScrollOrNavigate('services')} className="py-2 text-gray-700">
+                                Why us
+                            </button>
                             <button
                                 onClick={() => handleScrollOrNavigate('news')}
                                 className="pl-4 py-1 text-gray-600"
                             >
-                            News & Article
+                                News & Article
                             </button>
                         </div>
 

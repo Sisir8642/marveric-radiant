@@ -28,22 +28,21 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0">
 
         {/* Logo Section */}
-        <div className="flex flex-col md:items-start items-center text-center md:text-left">
-          <div className="flex items-center">
-            <img
-              src="/images/logo.jpeg"
-              alt="logo, marvik"
-              className="w-40 h-20 object-contain cursor-pointer"
-            />
-          </div>
+        <div className="flex-1 flex flex-col items-start text-left">
+          <img
+            src="/images/logo.jpeg"
+            alt="logo, marvik"
+            className="w-40 h-20 object-contain cursor-pointer"
+          />
           <p className="text-gray-400 text-sm mt-2">
-            SEBON-licensed Private Equity and Venture Capital fund manager
+            SEBON-licensed Private Equity and <br />
+            Venture Capital fund manager
           </p>
         </div>
 
         {/* Quick Links */}
-        <div className="flex flex-col items-start md:items-start text-center md:text-left lg:text-center">
-          <h3 className="text-lg font-semibold mb-2 lg:text-center ml-10">Quick Links</h3>
+        <div className="flex-1 flex flex-col items-center text-center">
+          <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
           <div className="flex flex-col space-y-1">
             <Link
               href="/about"
@@ -65,12 +64,14 @@ const Footer = () => {
             >
               MANAGEMENT TEAM
             </Link>
+
             <button
               onClick={() => handleScrollOrNavigate("services")}
               className="text-gray-400 hover:text-white transition-colors p-2 rounded-3xl font-bold"
             >
               WHAT WE DO
             </button>
+
             <button
               onClick={() => handleScrollOrNavigate("contact")}
               className="text-gray-400 hover:text-white transition-colors p-2 rounded-3xl font-bold"
@@ -81,7 +82,7 @@ const Footer = () => {
         </div>
 
         {/* Contact Info */}
-       <div className="flex flex-col items-end lg:items-center text-right lg:text-center">
+        <div className="flex-1 flex flex-col items-end text-right">
           <h3 className="text-lg font-semibold mb-2">Contact</h3>
           <p className="text-gray-400 text-sm">Lainchaur, Kathmandu</p>
           <p className="text-gray-400 text-sm">9704583930</p>

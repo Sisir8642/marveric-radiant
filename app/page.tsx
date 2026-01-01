@@ -16,19 +16,19 @@ export default function MaverickWebsite() {
 
   const values = [
     {
-      image: "images/Collaboration.jpg",
+      image: "images/Collaboration.png",
       title: "Collaboration and Discipline"
     },
     {
-      image: "images/Impact.jpg",
+      image: "images/Impact.png",
       title: "Impact and Sustainability"
     },
     {
-      image: "images/Innovation.jpg",
+      image: "images/Innovation.png",
       title: "Innovation and Entrepreneurship"
     },
     {
-      image: "images/integrity.jpg",
+      image: "images/integrity.png",
       title: "Integrity and Governance"
     }
   ];
@@ -128,7 +128,7 @@ export default function MaverickWebsite() {
                 Investments <ChevronRight className="ml-2" size={20} />
               </Button>
             </motion.div>
-          </div>  
+          </div>
 
         </div>
       </section>
@@ -183,33 +183,44 @@ export default function MaverickWebsite() {
       </section>
 
 
-      <div className="bg-gray-50 rounded-lg p-8">
-        <h3 className="text-3xl font-bold text-gray-900 mb-12 text-center">Our Values</h3>
+      <div className="bg-gray-50 rounded-xl p-10">
+        <h3 className="text-3xl font-bold text-gray-900 mb-14 text-center">
+          Our Values
+        </h3>
 
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {values.map((item, index) => (
             <motion.div
               key={index}
-              className="text-center p-6 bg-white rounded-lg shadow-sm cursor-pointer h-48 flex flex-col justify-end"
+              className="relative h-56 rounded-xl overflow-hidden cursor-pointer group"
               style={{
                 backgroundImage: `url(${item.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
               }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.1)" }}
-              transition={{ duration: 0.5, delay: index * 0.3 }}
-              viewport={{ once: false, amount: 0.2 }}
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              viewport={{ once: true }}
             >
-              <div className="bg-white/70 py-2 px-3 rounded-md backdrop-blur-sm">
-                <h4 className="font-semibold text-black-300">{item.title}</h4>
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/55 transition" />
+
+              {/* Content */}
+              <div className="absolute inset-0 flex items-end p-6">
+                <div>
+                  <h4 className="text-white text-lg font-semibold mb-1">
+                    {item.title}
+                  </h4>
+
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
 
       <section>
 
@@ -217,6 +228,8 @@ export default function MaverickWebsite() {
 
       <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
+
+          {/* Section Heading */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -225,79 +238,90 @@ export default function MaverickWebsite() {
           >
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900 mb-4 flex justify-center items-center gap-3">
-                What makes <TypingMaveric /> different ?
+                What makes <TypingMaveric /> different?
               </h2>
             </div>
-
           </motion.div>
+
+          {/* Cards Grid */}
           <div className="grid md:grid-cols-2 gap-8">
 
-            <Card
-              className="cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-              <CardHeader>
-                <Handshake className="w-12 h-12 text-green-600 mb-4 f" />
-                <CardTitle className='text-center text-1xl font-bold text-2xl'>Collaborative Strategy</CardTitle>
+            {/* Card 1 */}
+            <Card className="cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+              <CardHeader className="flex flex-row items-center justify-center gap-4">
+                <Handshake className="w-12 h-12 text-green-600 flex-shrink-0" />
+                <CardTitle className="text-2xl font-bold text-center">
+                  Collaborative Strategy
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">
-                  We leverage our well-connected network across institutional investors, entrepreneurs, and the global Nepali diaspora to unlock meaningful opportunities and strategic partnerships.</p>
+                <p className="text-gray-600 text-center">
+                  We leverage our well-connected network across institutional investors, entrepreneurs, and the global Nepali diaspora to unlock meaningful opportunities and strategic partnerships.
+                </p>
               </CardContent>
             </Card>
 
-            <Card
-              className="cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-              <CardHeader>
-                <BookOpen className="w-12 h-12 text-green-600 mb-4" />
-                <CardTitle className='text-center text-1xl font-bold text-2xl'>Industry Knowledge</CardTitle>
+            {/* Card 2 */}
+            <Card className="cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+              <CardHeader className="flex flex-row items-center justify-center gap-4">
+                <BookOpen className="w-12 h-12 text-green-600 flex-shrink-0" />
+                <CardTitle className="text-2xl font-bold text-center">
+                  Industry Knowledge
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">Our team of seasoned professionals with deep expertise in financial services, legal advisory and renewable energy brings a unique approach to private equity investing in Nepal, enabling us to identify opportunities and high-potential ventures.</p>
-
+                <p className="text-gray-600 text-center">
+                  Our team of seasoned professionals with deep expertise in financial services, legal advisory and renewable energy brings a unique approach to private equity investing in Nepal, enabling us to identify opportunities and high-potential ventures.
+                </p>
               </CardContent>
             </Card>
 
-            <Card
-              className="cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-              <CardHeader>
-                <LineChart className="w-12 h-12 text-green-600 mb-4 " />
-                <CardTitle className='text-center text-1xl font-bold text-2xl'>Diversified Investment</CardTitle>
+            {/* Card 3 */}
+            <Card className="cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+              <CardHeader className="flex flex-row items-center justify-center gap-4">
+                <LineChart className="w-12 h-12 text-green-600 flex-shrink-0" />
+                <CardTitle className="text-2xl font-bold text-center">
+                  Diversified Investment
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 text-center mb-2">
                   We manage sector-diversified investments across multiple industries and business segments, covering different growth stages. This approach allows us to:
                 </p>
-                <ul className="text-gray-600 space-y-2">
-                  <li>• Build a balanced and resilient investment portfolio</li>
-                  <li>• Capture opportunities across varied market cycles</li>
-                  <li>• Leverage cross-industry insights for smarter allocation</li>
-                  <li>• Support companies from early growth to maturity</li>
+                <ul className="text-gray-600 space-y-1 list-disc list-inside text-center">
+                  <li>Build a balanced and resilient investment portfolio</li>
+                  <li>Capture opportunities across varied market cycles</li>
+                  <li>Leverage cross-industry insights for smarter allocation</li>
+                  <li>Support companies from early growth to maturity</li>
                 </ul>
               </CardContent>
-
             </Card>
 
-            <Card
-              className="cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-              <CardHeader>
-                <Shield className="w-12 h-12 text-green-600 mb-4" />
-                <CardTitle className='text-center text-1xl font-bold text-2xl'>Sustainable Investing</CardTitle>
+            {/* Card 4 */}
+            <Card className="cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+              <CardHeader className="flex flex-row items-center justify-center gap-4">
+                <Shield className="w-12 h-12 text-green-600 flex-shrink-0" />
+                <CardTitle className="text-2xl font-bold text-center">
+                  Sustainable Investing
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 text-center mb-2">
                   We aim to integrate sustainability into our investments and business operations to drive better outcomes and responsible growth. This enables us to:
                 </p>
-                <ul className="text-gray-600 space-y-2">
-                  <li>• Promote long-term environmental and social resilience</li>
-                  <li>• Support businesses committed to responsible practices</li>
-                  <li>• Align investment decisions with global sustainability standards</li>
-                  <li>• Generate value while minimizing negative impact</li>
+                <ul className="text-gray-600 space-y-1 list-disc list-inside text-center">
+                  <li>Promote long-term environmental and social resilience</li>
+                  <li>Support businesses committed to responsible practices</li>
+                  <li>Align investment decisions with global sustainability standards</li>
+                  <li>Generate value while minimizing negative impact</li>
                 </ul>
               </CardContent>
-
             </Card>
+
           </div>
         </div>
       </section>
+
 
       <section id="whatWeDo" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
@@ -342,7 +366,7 @@ export default function MaverickWebsite() {
             ].map((item, i) => (
               <Card
                 key={i}
-                className="min-w-[300px] max-w-[300px] bg-white h-[420px] shadow-md hover:shadow-xl rounded-xl transition-all duration-300 transform hover:-translate-y-1 fade-up flex flex-col"
+                className="min-w-75 max-w-75 bg-white h-full shadow-md hover:shadow-xl rounded-xl transition-all duration-300 transform hover:-translate-y-1 fade-up flex flex-col"
               >
                 <CardHeader className="flex-1">
                   <div className="flex flex-col items-center text-center gap-4">
@@ -381,15 +405,13 @@ export default function MaverickWebsite() {
       </section>
 
 
-      <section
+      {/* <section
         id="investments"
         className="relative bg-[url('/images/entreprenaurs.jpg')] bg-cover bg-center text-white"
       >
-        {/* Overlay */}
         <div className="absolute inset-0 backdrop-blur-lg bg-black/40"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
-          {/* Heading */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Investments
           </h2>
@@ -398,7 +420,6 @@ export default function MaverickWebsite() {
             Target sectors, investment process, and our flagship Maverick Fund-101.
           </p>
 
-          {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -427,10 +448,8 @@ export default function MaverickWebsite() {
                 href={item.link}
                 className="group relative rounded-xl overflow-hidden"
               >
-                {/* Card background */}
                 <div className="absolute inset-0 bg-white/10 backdrop-blur-md transition group-hover:bg-white/20"></div>
 
-                {/* Card content */}
                 <div className="relative p-6 h-full min-h-80 flex flex-col justify-between">
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold mb-3">
@@ -441,7 +460,6 @@ export default function MaverickWebsite() {
                     </p>
                   </div>
 
-                  {/* Button */}
                   <span className="inline-block mt-6 px-4 py-2 bg-green-800 rounded-full text-sm group-hover:bg-green-900 transition">
                     Learn More →
                   </span>
@@ -451,7 +469,6 @@ export default function MaverickWebsite() {
           </div>
         </div>
 
-        {/* Line clamp */}
         <style>{`
     .line-clamp-4 {
       display: -webkit-box;
@@ -460,20 +477,18 @@ export default function MaverickWebsite() {
       overflow: hidden;
     }
   `}</style>
-      </section>
+      </section> */}
 
 
 
-      <section id="news" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      {/* <section id="news" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
 
-          {/* Heading */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">News & Articles</h2>
             <p className="text-lg text-gray-600">Latest insights, announcements, and industry updates.</p>
           </div>
 
-          {/* Cards */}
           <div className="grid md:grid-cols-3 gap-10">
 
             {[
@@ -496,12 +511,11 @@ export default function MaverickWebsite() {
               <a key={index} href="/news" className="block">
                 <div className="bg-white shadow-md hover:shadow-xl rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1">
 
-                  {/* Image */}
+                  
                   <div className="h-48 w-full overflow-hidden">
                     <img src={article.image} className="w-full h-full object-cover" alt={article.title} />
                   </div>
 
-                  {/* Content */}
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-800 mb-3">{article.title}</h3>
                     <p className="text-gray-600 text-sm mb-4 line-clamp-3">{article.description}</p>
@@ -518,11 +532,7 @@ export default function MaverickWebsite() {
           </div>
 
         </div>
-      </section>
-
-
-
-
+      </section> */}
 
       <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto text-center mb-12">

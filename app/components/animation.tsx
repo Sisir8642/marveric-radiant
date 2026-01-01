@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 const TypingMaveric = () => {
-  const word = "Maveric";
+  const word = "Maverick";
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [index, setIndex] = useState(0);
